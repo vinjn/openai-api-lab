@@ -7,6 +7,8 @@ import os
 DEEPSEEK_API_KEY = os.environ.get("DEEPSEEK_API_KEY")
 if DEEPSEEK_API_KEY is None:
     raise ValueError("Please set the DEEPSEEK_API_KEY environment variable")
+else:
+    print("API Key found")
 
 client = OpenAI(base_url="https://api.deepseek.com", api_key=DEEPSEEK_API_KEY)
 
