@@ -1,4 +1,5 @@
 # Please install OpenAI SDK first: `pip3 install openai`
+# https://api-docs.deepseek.com/guides/reasoning_model
 
 from openai import OpenAI
 import os
@@ -9,8 +10,10 @@ if DEEPSEEK_API_KEY is None:
 
 client = OpenAI(base_url="https://api.deepseek.com", api_key=DEEPSEEK_API_KEY)
 
+# model = "deepseek-chat"
+model = "deepseek-reasoner"  # DeepSeek-R1
 response = client.chat.completions.create(
-    model="deepseek-chat",
+    model=model,
     messages=[
         {"role": "system", "content": "You are a helpful assistant"},
         {"role": "user", "content": "Hello"},
